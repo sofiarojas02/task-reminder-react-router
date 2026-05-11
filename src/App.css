@@ -1,38 +1,173 @@
-.App {
-  text-align: center;
+/* Configuración General */
+:root {
+  --primary: #646cff;
+  --bg-main: #f4f7f6;
+  --bg-card: #ffffff;
+  --text: #2d3436;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+body {
+  background-color: var(--bg-main);
+  color: var(--text);
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  margin: 0;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #233553;
-  min-height: 100vh;
+.Main {
   display: flex;
-  flex-direction: column;
-  align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
+  align-items: flex-start;
+  gap: 40px;
+  padding: 50px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* Sección de la Lista */
+.Todos__section {
+  flex: 1;
+  background: var(--bg-card);
+  padding: 30px;
+  border-radius: 16px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.05);
+}
+
+/* Sección de Creación */
+.newTask__section {
+  width: 350px;
+  position: sticky;
+  top: 50px;
+}
+
+.newTask__container {
+  background: var(--bg-card);
+  padding: 25px;
+  border-radius: 16px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.05);
+}
+
+h2 {
+  margin-top: 0;
+  font-size: 1.5rem;
+  color: var(--primary);
+}
+
+/* Formulario */
+label {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: 600;
+}
+
+input {
+  width: 100%;
+  padding: 12px;
+  margin-bottom: 20px;
+  border: 2px solid #e0e0e0;
+  border-radius: 8px;
+  box-sizing: border-box; /* Importante para el ancho */
+  transition: border-color 0.3s;
+}
+
+input:focus {
+  outline: none;
+  border-color: var(--primary);
+}
+
+button {
+  width: 100%;
+  padding: 12px;
+  background-color: var(--primary);
   color: white;
+  border: none;
+  border-radius: 8px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: transform 0.2s;
 }
 
-.App-link {
-  color: #97ca3f;
+button:hover {
+  filter: brightness(1.1);
+  transform: translateY(-2px);
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+
+@media (max-width: 768px) {
+  .Main {
+    flex-direction: column-reverse; /* El creador pasa arriba o abajo */
+    padding: 20px;
   }
-  to {
-    transform: rotate(360deg);
+  .newTask__section {
+    width: 100%;
   }
+}
+
+
+ul{
+    list-style: none;
+}
+
+
+/* TodoItem */
+
+li {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #fff;
+  margin: 16px 0;
+  padding: 12px 24px;
+  border-radius: 12px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+  list-style: none; /* Quita el punto de la lista */
+}
+
+li p {
+  margin: 0;
+  font-size: 18px;
+  color: #2d3436;
+  flex: 1; /* Hace que el texto ocupe el espacio central */
+  margin: 0 20px;
+}
+
+/* Estilos para los iconos */
+span {
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  transition: 0.3s ease;
+}
+
+/* Icono de Check (Completar) */
+.icon-svg{
+  width: 25px;
+  height: 25px;
+}
+
+.icon__container--check:hover{
+  transform: scale(1.2);
+}
+
+.icon__container--delete:hover{
+  transform: scale(1.2);
+}
+
+.icon__container--check:hover .icon-svg{
+  fill: green;
+
+}
+
+.icon__container--delete:hover .icon-svg{
+  fill: red;
+}
+
+.check__text{
+  text-decoration: line-through;
+}
+
+
+/* Variación cuando el TODO está completado */
+.TodoItem-p--completed {
+  text-decoration: line-through;
+  color: #b2bec3;
 }
