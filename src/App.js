@@ -7,23 +7,30 @@ import { TodoSearch } from './TodoComponents/TodoSearch';
 import { CreateTodoButton } from './TodoComponents/CreateTodoButton';
 import { CreateTask } from './TodoComponents/CreateTask';
 
-const defaultTodos = [
-  {text: 'Cortar Cebolla', completed: true},
-  {text: 'llorar por la mañana', completed: true},
-  {text: 'llorar por la tarde', completed: false},
-  {text: 'llorar por la noche', completed: false},
-  {text: 'Cortar pepino', completed: false},
-]
-
-
-
+// const defaultTodos = [
+//   {text: 'Cortar Cebolla', completed: true},
+//   {text: 'llorar por la mañana', completed: true},
+//   {text: 'llorar por la tarde', completed: false},
+//   {text: 'llorar por la noche', completed: false},
+//   {text: 'Cortar pepino', completed: false},
+// ]
 
 
 
 function App() {
-  const [todos, setTodos] = React.useState(defaultTodos)
+  const localStorageTodos = localStorage.getItem('TODOS_V1')
+  let parsedTodos
+
+  if(!localStorageTodos){
+    parsedTodos = []
+  }else{
+    parsedTodos = JSON.parse(localStorageTodos)
+  }
+
+
+
+  const [todos, setTodos] = React.useState(parsedTodos)
   const [searhcValue, setSearhcValue] = React.useState('');
-  const [pressCompleteTodo, setpressCompleteTodo] = React.useState(false);
   
   const filteredTodos = todos.filter(todo => (
     todo.text.toLocaleLowerCase().includes(searhcValue.toLocaleLowerCase())
@@ -32,12 +39,17 @@ function App() {
   const totalTodos = todos.length
   const completedTodos = todos.filter(todo => todo.completed).length
 
+  const saveTodos = (newTodos) =>{
+    localStorage.setItem('TODOS_V1', JSON.stringify(newTodos))
+    setTodos(newTodos)
+  }
+
   const completeTodo = (textComplete)=>{
     const newTodos = [...todos]
     const todoIndex = newTodos.findIndex((todo)=>
       todo.text === textComplete)
     newTodos[todoIndex].completed = !newTodos[todoIndex].completed
-    setTodos(newTodos)
+    saveTodos(newTodos)
   }
 
   const deleteTodo = (textDelete)=>{
@@ -47,7 +59,7 @@ function App() {
     )
     // const news = newTodos.filter(todo => todo.text !== textDelete)
     newTodos.splice(todoIndex, 1)
-    setTodos(newTodos)
+    saveTodos(newTodos)
   }
 
 

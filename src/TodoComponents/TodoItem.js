@@ -1,6 +1,6 @@
 import { TodoIcon } from "./TodoIcon"
-import { CompleteIcon } from "../Icons/CompleteIcon"
-import { DeleteIcon } from "../Icons/DeleteIcon"
+import { CompleteIcon } from "../IconsComponents/CompleteIcon"
+import { DeleteIcon } from "../IconsComponents/DeleteIcon"
 
 function TodoItem({text, completed, onComplete, onDelete}){
   return(
