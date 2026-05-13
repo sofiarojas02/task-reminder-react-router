@@ -171,3 +171,27 @@ span {
   text-decoration: line-through;
   color: #b2bec3;
 }
+
+
+/* Loading elements -> skeleton-item*/
+
+.skeleton-item {
+  width: 90%;
+  height: 48px; /* Ajusta según el alto de tus tareas */
+  margin-bottom: 12px;
+  border-radius: 12px;
+  background-color: #E8E8FF; /* Un lila muy claro, acorde a tu UI */
+  animation: smoothPulse 1.8s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+@keyframes smoothPulse {
+  0% {
+    opacity: 0.6;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0.6;
+  }
+}

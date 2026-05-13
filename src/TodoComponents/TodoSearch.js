@@ -1,10 +1,17 @@
-function TodoSearch({searhcValue, setSearhcValue}){
+import { TodoContext } from "../TodoContext/TodoContext"
+
+function TodoSearch(){
   return(
-    <input 
-    placeholder="Buscar"
-    onChange={(e)=> setSearhcValue(e.target.value)}
-    value={searhcValue}
-    ></input>
+    <TodoContext.Consumer>
+      {({searhcValue, setSearhcValue})=>(
+        <input 
+        placeholder="Buscar"
+        onChange={(e)=> setSearhcValue(e.target.value)}
+        value={searhcValue}
+        ></input>
+
+      )}
+    </TodoContext.Consumer>
   )
 }
 export {TodoSearch}

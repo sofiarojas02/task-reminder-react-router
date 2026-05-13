@@ -1,6 +1,12 @@
-function TodoCounter({completedTodos, totalTodos}){
+import { TodoContext } from "../TodoContext/TodoContext"
+
+function TodoCounter(){
   return(
-    <h2>Has completado {completedTodos} de {totalTodos} Todos</h2>
+    <TodoContext.Consumer>
+      {({completedTodos, totalTodos})=>(
+        <h2>Has completado {completedTodos} de {totalTodos} Todos</h2>
+      )}
+    </TodoContext.Consumer>
   )
 }
 export {TodoCounter}
