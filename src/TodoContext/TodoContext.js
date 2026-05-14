@@ -12,6 +12,10 @@ function TodoProvider({children}){
     error,
   } = useLocalStorage('TODOS_V1', [])
   const [searhcValue, setSearhcValue] = React.useState('');
+  const [isNewBook, setIsNewBook] = React.useState(false); //Modal para añadir nota
+  const [createNote, setCreateNote] = React.useState(false); //Estado para añadir nota
+  const [valueNote, setValueNote] = React.useState('');
+
 
   
   const filteredTodos = todos.filter(todo => (
@@ -41,6 +45,15 @@ function TodoProvider({children}){
     saveTodos(newTodos)
   }
 
+  const createNewNote = () => {
+    setIsNewBook(false)
+    setCreateNote(true)
+  }
+
+  const deleteNote = () =>{
+    setValueNote('')
+  }
+
 
     return(
 
@@ -53,6 +66,14 @@ function TodoProvider({children}){
         setSearhcValue, filteredTodos, 
         completeTodo, 
         deleteTodo,
+        isNewBook,
+        setIsNewBook,
+        createNote,
+        setCreateNote,
+        createNewNote,
+        valueNote,
+        setValueNote,
+        deleteNote,
     }}>
             {children}
         </TodoContext.Provider>
