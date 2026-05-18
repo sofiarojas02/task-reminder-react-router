@@ -9,7 +9,6 @@
     color: var(--primary-dark);
     border: 1px solid var(--primary);
 
-    z-index: 100000;
 }
 
 
@@ -19,6 +18,7 @@
         margin: auto;
     }
 }
+
 @media (max-width: 470px) {
     .CreateBookButton{
         width: 80%;
