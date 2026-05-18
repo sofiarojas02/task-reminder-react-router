@@ -130,7 +130,8 @@ const capitalize = (text) => {
         sameTodo,
         setSameTodo,
         sameNote,
-        setSameNote
+        setSameNote,
+        todos,
     }}>
             {children}
         </TodoContext.Provider>

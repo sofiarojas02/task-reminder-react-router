@@ -24,6 +24,7 @@ function AppUi(){
     createNote,
     setCreateNote,
     valueNote,
+    todos,
 
     notes,
     saveNotes,
@@ -45,7 +46,7 @@ function AppUi(){
 
               {(loading && !error)  && <TodosLoading />}
               {(error && !loading)  && <TodosError />}
-              {(!loading && !error && filteredTodos.length === 0) && <EmptyTodos />}
+              {(!loading && !error && todos.length === 0) && <EmptyTodos />}
 
               {filteredTodos.map(todo => (
               <TodoItem
