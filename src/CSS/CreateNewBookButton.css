@@ -1,7 +1,10 @@
 .CreateBookButton {
+    position: relative;
     padding: 8px 16px; 
     font-size: 12px;
     width: auto; /* Para que no ocupe todo el ancho como el de arriba */
     transition: background-color 0.3s;
     margin-top: 50px;
+
+    z-index: 100000;
 }

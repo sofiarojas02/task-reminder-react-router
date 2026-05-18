@@ -1,16 +1,36 @@
-import { CreateTodoButton } from './CreateTodoButton';
+import React, { useContext, useEffect } from "react"
+import '../CSS/CreateTask.css'
+import { CreateTodoButton } from '../TodoComponents/CreateTodoButton';
+import { TodoContext } from "../TodoContext/TodoContext";
+
 
 function CreateTask(){
+  const {sameTodo, setSameTodo} = useContext(TodoContext)
+  const [newTaskValue, setNewTaskValue] = React.useState('')
+
+
+
   return(
     <>
-
       <div className='newTask__container'>
         <h2>Create new task</h2>
-
+        <p className={`errorAddTodo ${sameTodo ? 'showErrorAddTodo' : ''}`}>Ya existe ese ToDo</p>
         <label>Task Name</label>
-        <input placeholder="Prepare lunch"></input>
+        <input 
+        placeholder="Prepare lunch"
+        value={newTaskValue}
+        onChange={(e)=> {
+          setNewTaskValue(e.target.value)
+          setSameTodo(false)
+        }}
+        
+        ></input>
 
-        <CreateTodoButton />
+        <CreateTodoButton 
+        newTaskText = {newTaskValue}
+        setNewTaskValue = {setNewTaskValue}
+        />
+
 
         <div className='newTask__img'>
           <img 

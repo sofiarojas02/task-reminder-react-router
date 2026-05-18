@@ -1,0 +1,9 @@
+.errorAddNote{
+    display: none;
+}
+
+.showErrorAddNote{
+    display: block;
+    color: red;
+    font-size: 13px;
+}

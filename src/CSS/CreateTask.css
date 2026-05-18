@@ -1,0 +1,10 @@
+.errorAddTodo{
+    display: none;
+}
+
+.showErrorAddTodo{
+    display: block;
+    color: red;
+    font-size: 14px;
+    
+}

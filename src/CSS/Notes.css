@@ -1,4 +1,8 @@
-.NoteContainer {
+.note__container{
+  margin-top: 25px;
+}
+
+.note__item {
   background-color: #f9f9fb; /* Beige muy claro */
   border-left: 5px solid #645cff; /* El azul de tu marca */
   padding: 12px 16px;
@@ -6,12 +10,11 @@
   border-radius: 8px;
   position: relative;
   box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.05);
-  display: flex;
   justify-content: space-between;
   align-items: center;
 }
 
-.NoteText {
+.note__text {
   margin: 0;
   font-size: 14px;
   color: #202329;
@@ -19,12 +22,15 @@
 }
 
 .NoteDeleteIcon {
+  position: absolute ;
+  right: 0;
+  top: -10px;
   cursor: pointer;
-  font-size: 20px;
+  font-size: 25px;
   color: #c4c4c4;
   transition: color 0.2s;
 }
 
 .NoteDeleteIcon:hover {
-  color: #ff5c5c;
+  color: red;
 }

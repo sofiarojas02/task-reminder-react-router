@@ -1,6 +1,21 @@
-function CreateTodoButton(){
+import { useContext } from "react"
+import { TodoContext } from "../TodoContext/TodoContext"
+
+
+function CreateTodoButton({newTaskText, setNewTaskValue}){
+  const {
+    addTodo
+  } = useContext(TodoContext)
+
+
   return(
-    <button>Crear</button>
+    <button
+    onClick={()=> {
+      addTodo(newTaskText)
+      setNewTaskValue('')
+    }}
+    
+    >Crear</button>
   )
 }
 
