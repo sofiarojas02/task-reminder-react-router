@@ -1,5 +1,5 @@
 {
-  "name": "platzi-intro-react-base",
+  "name": "task-reminder-app",
   "version": "0.1.0",
   "dependencies": {
     "bootstrap": "^5.3.8",
@@ -11,6 +11,8 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
+    "predeploy" : "npm run build",
+    "deploy" : "gh-pages -d build",
     "eject": "react-scripts eject"
   },
   "eslintConfig": {
@@ -29,5 +31,9 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "homepage": "https://sofiarojas02.github.io/Task_Reminder",
+  "devDependencies": {
+    "gh-pages": "^6.3.0"
   }
 }

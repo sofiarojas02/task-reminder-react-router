@@ -45,7 +45,7 @@ function AppUi(){
 
               {(loading && !error)  && <TodosLoading />}
               {(error && !loading)  && <TodosError />}
-              {(!loading && filteredTodos.lenght == 0) && <EmptyTodos />}
+              {(!loading && !error && filteredTodos.length === 0) && <EmptyTodos />}
 
               {filteredTodos.map(todo => (
               <TodoItem

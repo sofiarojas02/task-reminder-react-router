@@ -1,0 +1,295 @@
+/* =============================================
+   VARIABLES & RESET
+   ============================================= */
+:root {
+  --primary: #646cff;
+  --primary-dark: #4a52e0;
+  --primary-light: #e8e9ff;
+  --bg-main: #f4f7f6;
+  --bg-card: #ffffff;
+  --text: #2d3436;
+  --text-muted: #b2bec3;
+  --danger: #ff4d4d;
+  --success: #00b894;
+  --border: #e0e0e0;
+  --shadow-sm: 0 4px 8px rgba(0, 0, 0, 0.05);
+  --shadow-md: 0 10px 25px rgba(0, 0, 0, 0.08);
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 16px;
+  --transition: 0.25s ease;
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: var(--bg-main);
+  color: var(--text);
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  min-height: 100vh;
+}
+
+/* =============================================
+   LAYOUT PRINCIPAL
+   ============================================= */
+.Main {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 32px;
+  padding: 48px 40px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* =============================================
+   SECCIÓN TODOS (izquierda)
+   ============================================= */
+.Todos__section {
+  flex: 1;
+  min-width: 0; /* evita overflow en flex */
+  background: var(--bg-card);
+  padding: 30px;
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-md);
+}
+
+/* =============================================
+   SECCIÓN LATERAL (derecha)
+   ============================================= */
+.newTask__section {
+  width: 340px;
+  flex-shrink: 0;
+  position: sticky;
+  top: 32px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+/* =============================================
+   HEADINGS
+   ============================================= */
+h2 {
+  font-size: 1.4rem;
+  color: var(--primary);
+  margin-bottom: 16px;
+}
+
+/* =============================================
+   INPUTS GLOBALES
+   ============================================= */
+input {
+  width: 100%;
+  padding: 11px 14px;
+  margin-bottom: 16px;
+  border: 2px solid var(--border);
+  border-radius: var(--radius-sm);
+  font-size: 0.95rem;
+  font-family: inherit;
+  transition: border-color var(--transition);
+  background: #fafafa;
+}
+
+input:focus {
+  outline: none;
+  border-color: var(--primary);
+  background: #fff;
+}
+
+label {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: 600;
+  font-size: 0.9rem;
+}
+
+/* =============================================
+   BOTONES GLOBALES
+   ============================================= */
+button {
+  width: 100%;
+  padding: 11px 16px;
+  background-color: var(--primary);
+  color: white;
+  border: none;
+  border-radius: var(--radius-sm);
+  font-weight: 700;
+  font-size: 0.95rem;
+  font-family: inherit;
+  cursor: pointer;
+  transition: filter var(--transition), transform var(--transition);
+}
+
+button:hover {
+  filter: brightness(1.1);
+  transform: translateY(-2px);
+}
+
+button:active {
+  transform: translateY(0);
+}
+
+/* =============================================
+   LISTA DE TODOS
+   ============================================= */
+ul {
+  list-style: none;
+  padding: 0;
+}
+
+li {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #fff;
+  margin: 14px 0;
+  padding: 12px 20px;
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-sm);
+  border: 1px solid #f0f0f0;
+  transition: box-shadow var(--transition);
+}
+
+li:hover {
+  box-shadow: 0 6px 16px rgba(100, 108, 255, 0.1);
+}
+
+li p {
+  margin: 0 16px;
+  font-size: 1rem;
+  color: var(--text);
+  flex: 1;
+  word-break: break-word; /* evita overflow en textos largos */
+}
+
+/* =============================================
+   ICONOS
+   ============================================= */
+span {
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  transition: transform var(--transition);
+}
+
+.icon-svg {
+  width: 24px;
+  height: 24px;
+}
+
+.icon__container--check:hover {
+  transform: scale(1.2);
+}
+.icon__container--check:hover .icon-svg {
+  fill: var(--success);
+}
+
+.icon__container--delete:hover {
+  transform: scale(1.2);
+}
+.icon__container--delete:hover .icon-svg {
+  fill: var(--danger);
+}
+
+.check__text {
+  text-decoration: line-through;
+  color: var(--text-muted) !important;
+}
+
+/* =============================================
+   SKELETON LOADING
+   ============================================= */
+.skeleton-item {
+  width: 100%;
+  height: 52px;
+  margin-bottom: 14px;
+  border-radius: var(--radius-md);
+  background: linear-gradient(90deg, #eeeeee 25%, #e8e8ff 50%, #eeeeee 75%);
+  background-size: 200% 100%;
+  animation: shimmer 1.6s infinite;
+  list-style: none;
+  box-shadow: none;
+  border: none;
+}
+
+@keyframes shimmer {
+  0%   { background-position: 200% 0; }
+  100% { background-position: -200% 0; }
+}
+
+/* =============================================
+   RESPONSIVE — TABLET (≤ 900px)
+   ============================================= */
+@media (max-width: 900px) {
+  .Main {
+    gap: 24px;
+    padding: 32px 24px;
+  }
+
+  .newTask__section {
+    width: 290px;
+  }
+}
+
+/* =============================================
+   RESPONSIVE — MÓVIL (≤ 768px)
+   ============================================= */
+@media (max-width: 768px) {
+  .Main {
+    flex-direction: column;
+    padding: 16px;
+    gap: 20px;
+  }
+
+  .newTask__section {
+    width: 100%;
+    position: static; /* deja de ser sticky en móvil */
+  }
+
+  .Todos__section {
+    padding: 20px 16px;
+    width: 100%;
+  }
+
+  h2 {
+    font-size: 1.2rem;
+  }
+
+  li {
+    padding: 10px 14px;
+  }
+
+  li p {
+    font-size: 0.9rem;
+    margin: 0 10px;
+  }
+
+  .icon-svg {
+    width: 20px;
+    height: 20px;
+  }
+}
+
+/* =============================================
+   RESPONSIVE — MÓVIL PEQUEÑO (≤ 400px)
+   ============================================= */
+@media (max-width: 470px) {
+  .Main {
+    padding: 12px;
+  }
+
+  .Todos__section {
+    width: 100%;
+    padding: 16px 12px;
+  }
+
+  h2 {
+    font-size: 1.1rem;
+  }
+}
+

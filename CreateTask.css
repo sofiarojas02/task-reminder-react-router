@@ -60,28 +60,10 @@
 @media (max-width: 768px) {
   .newTask__container {
     padding: 18px 16px;
-    width: 100%;
   }
 
   .newTask__container h2 {
     font-size: 1.1rem;
     margin-bottom: 14px;
   }
-
-  .newTask__section{
-    display: flex;
-  }
 }
-
-
-.errorAddTodo{
-    display: none;
-}
-
-.showErrorAddTodo{
-    display: block;
-    color: red;
-    font-size: 14px;
-    
-}
-

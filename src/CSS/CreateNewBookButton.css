@@ -2,9 +2,26 @@
     position: relative;
     padding: 8px 16px; 
     font-size: 12px;
-    width: auto; /* Para que no ocupe todo el ancho como el de arriba */
+    width: 50%;
     transition: background-color 0.3s;
-    margin-top: 50px;
+    margin-top: 20px;
+    background-color: var(--background-card);
+    color: var(--primary-dark);
+    border: 1px solid var(--primary);
 
     z-index: 100000;
 }
+
+
+@media (max-width: 768px) {
+    .CreateBookButton{
+        width: 90%;
+        margin: auto;
+    }
+}
+@media (max-width: 470px) {
+    .CreateBookButton{
+        width: 80%;
+    }
+}
+

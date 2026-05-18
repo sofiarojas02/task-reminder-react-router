@@ -1,4 +1,4 @@
-import './App.css';
+import '../CSS/App.css';
 import React from 'react';
 import { AppUi } from './AppUi';
 

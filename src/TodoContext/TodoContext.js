@@ -9,6 +9,11 @@ function TodoProvider({children}){
     text = text.toLocaleLowerCase().trim()
   )
 
+const capitalize = (text) => {
+  if (!text) return '';
+  return text.charAt(0).toUpperCase() + text.slice(1).toLowerCase();
+};
+
   const {
     item: todos, 
     saveItem: saveTodos,
@@ -63,7 +68,7 @@ function TodoProvider({children}){
       comparedTodos = newTodos.filter((todo) => formatString(todo.text) === formatString(text))
       if(comparedTodos.length === 0){
         newTodos.push({
-          text: text,
+          text: capitalize(text),
           completed: false,
         })
         saveTodos(newTodos)
@@ -81,7 +86,7 @@ function TodoProvider({children}){
     compareNotes = newNotes.filter((note) => formatString(note.text) === formatString(text))
     if(compareNotes.length === 0){
       newNotes.push({
-        text: text
+        text: capitalize(text)
       })
       setIsNewBook(false)
       saveNotes(newNotes)
