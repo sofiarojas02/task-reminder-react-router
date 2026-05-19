@@ -51,10 +51,14 @@ function App() {
 
       <section className='Todos__section'>
 
-        <TodoHeader>
+        <TodoHeader
+          loading = {loading}
+        >
+
           <TodoCounter 
           completedTodos = {completedTodos}
           totalTodos = {totalTodos}
+
           
           />
           <TodoSearch 
