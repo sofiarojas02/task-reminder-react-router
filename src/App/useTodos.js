@@ -1,9 +1,8 @@
 import React from "react";
 import { useLocalStorage } from "./useLocalStorage";
 
-const TodoContext = React.createContext()
 
-function TodoProvider({children}){
+function useTodos(){
 
   const formatString = (text) => (
     text = text.toLocaleLowerCase().trim()
@@ -106,8 +105,7 @@ const capitalize = (text) => {
 
 
     return(
-
-        <TodoContext.Provider value={{
+      {
         loading,
         error,
         totalTodos, 
@@ -132,13 +130,11 @@ const capitalize = (text) => {
         sameNote,
         setSameNote,
         todos,
-    }}>
-            {children}
-        </TodoContext.Provider>
+    }
     )
 
 
 }
 
 
-export {TodoContext, TodoProvider}
+export {useTodos}

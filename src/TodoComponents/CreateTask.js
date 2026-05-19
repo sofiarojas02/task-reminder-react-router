@@ -1,11 +1,9 @@
 import React, { useContext, useEffect } from "react"
 import '../CSS/CreateTask.css'
 import { CreateTodoButton } from '../TodoComponents/CreateTodoButton';
-import { TodoContext } from "../TodoContext/TodoContext";
 
 
-function CreateTask(){
-  const {sameTodo, setSameTodo} = useContext(TodoContext)
+function CreateTask({sameTodo, setSameTodo, addTodo}){
   const [newTaskValue, setNewTaskValue] = React.useState('')
 
 
@@ -27,6 +25,7 @@ function CreateTask(){
         ></input>
 
         <CreateTodoButton 
+        addTodo = {addTodo}
         newTaskText = {newTaskValue}
         setNewTaskValue = {setNewTaskValue}
         />

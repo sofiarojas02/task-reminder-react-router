@@ -1,11 +1,9 @@
 import { useContext } from "react"
-import { TodoContext } from "../TodoContext/TodoContext"
 
-function TodoSearch(){
-  const {
+function TodoSearch({
     searhcValue,
     setSearhcValue,
-  } = useContext(TodoContext)
+  }){
   return(
         <input 
         placeholder="Buscar"

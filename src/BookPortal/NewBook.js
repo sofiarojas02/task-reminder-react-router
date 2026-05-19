@@ -1,16 +1,14 @@
 import React, { useContext, useEffect } from "react"
 import '../CSS/NewBook.css'
 import ReactDOM from 'react-dom';
-import { TodoContext } from "../TodoContext/TodoContext";
 
 
-function NewBook (){
-    const {
+function NewBook ({
         addNewNote,
         setIsNewBook,
         sameNote,
         setSameNote,
-    } = useContext(TodoContext)
+    }){
 
   const [valueNote, setValueNote] = React.useState('');
 

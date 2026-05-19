@@ -1,11 +1,7 @@
 import { useContext } from "react"
-import { TodoContext } from "../TodoContext/TodoContext"
 
 
-function CreateTodoButton({newTaskText, setNewTaskValue}){
-  const {
-    addTodo
-  } = useContext(TodoContext)
+function CreateTodoButton({newTaskText, setNewTaskValue, addTodo}){
 
 
   return(

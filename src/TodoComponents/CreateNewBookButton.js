@@ -1,10 +1,8 @@
 import { useContext } from 'react'
 import '../CSS/CreateNewBookButton.css'
-import { TodoContext } from '../TodoContext/TodoContext'
 
 
-function CreateNewBookButton(){
-const {setIsNewBook} = useContext(TodoContext)
+function CreateNewBookButton({setIsNewBook}){
 
     return(
         <button 

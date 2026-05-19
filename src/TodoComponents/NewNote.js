@@ -1,14 +1,12 @@
 import React, { useContext } from "react"
-import { TodoContext } from "../TodoContext/TodoContext"
 import '../CSS/Notes.css'
 
-function NewNote (){
-    
-
-    const {
+function NewNote ({
         notes,
         deleteNote,
-    } = useContext(TodoContext)
+    }){
+    
+
 
 
     return(
