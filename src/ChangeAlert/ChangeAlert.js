@@ -1,17 +1,23 @@
-import { withStoragelistener } from "./withStorageListener"
+import { useStoragelistener } from "./useStoragelistener"
+import '../CSS/ChangeAlert.css'
 
-function ChangeAlert({show, toggleShow}){
+function ChangeAlert({sincronize}){
+
+    const {show, toggleShow, } = useStoragelistener(sincronize)
 
 
     if(show){
         return  (
-            <div>
-                <p>Hubo cambios</p>
-                <button
-                
-                onClick={toggleShow}
-                
-                >Refrescar</button>
+            <div className="changeDetected__container">
+                <div className="changeDetected--opacity"></div>
+                <div className="changeDetected__info">
+                    <h3>Se detectaron cambios en otra pagina</h3>
+                    <p>¿Deseas recargar la pagina?</p>
+                    <button
+                    className="changeDetected__btn"
+                    onClick={toggleShow}
+                    >SI</button>
+                </div>
             </div>
         )
     }else{
@@ -19,6 +25,5 @@ function ChangeAlert({show, toggleShow}){
     }
 }
 
-const ChangeAlertWithStorageListener = withStoragelistener(ChangeAlert)
 
-export {ChangeAlertWithStorageListener}
+export {ChangeAlert}

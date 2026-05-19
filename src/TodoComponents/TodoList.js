@@ -23,7 +23,7 @@ function TodoList({error,
 
 
 
-      {filteredTodos.map(renderFunc)}
+      {(!loading && !error) && filteredTodos.map(renderFunc)}
 
     </section>
   )

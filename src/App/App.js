@@ -15,7 +15,7 @@ import { CreateNewBookButton } from '../TodoComponents/CreateNewBookButton';
 import { NewNote } from '../TodoComponents/NewNote';
 import { TodoHeader } from '../TodoComponents/TodoHeader';
 import { CreateTodoButton } from '../TodoComponents/CreateTodoButton';
-import { ChangeAlertWithStorageListener } from '../ChangeAlert/ChangeAlert';
+import { ChangeAlert } from '../ChangeAlert/ChangeAlert';
 
 
 function App() {
@@ -51,7 +51,7 @@ function App() {
 
     <div className='Main'>
 
-      <ChangeAlertWithStorageListener 
+      <ChangeAlert 
       sincronize = {sincronizeTodos}
       />
 
