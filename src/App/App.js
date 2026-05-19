@@ -69,12 +69,15 @@ function App() {
               <TodoList
                 error = {error}
                 loading = {loading}
+                totalTodos={totalTodos}
                 todos={todos}
                 filteredTodos = {filteredTodos}
+                searchText = {searhcValue}
 
                 onError = {()=> <TodosError />}
                 onLoading = {()=> <TodosLoading />}
-                onEmpty = {()=> <EmptyTodos />}
+                onEmptyTodos = {()=> <EmptyTodos />}
+                onEmptySearchedTodos = {(searchText)=> <p>No hay resultado para: {searchText} </p>}
                 render={todo => (
                 <TodoItem
                 key={todo.text} 
@@ -84,7 +87,19 @@ function App() {
                 onDelete={() => deleteTodo(todo.text)}
                 />
                 )}
-              />
+              >
+
+                  {/* {todo => (
+                  <TodoItem
+                  key={todo.text} 
+                  text={todo.text}
+                  completed={todo.completed}
+                  onComplete={() => completeTodo(todo.text)}
+                  onDelete={() => deleteTodo(todo.text)}
+                  />
+                  )
+                  } */}
+              </TodoList>
 
 
       </section>

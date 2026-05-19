@@ -1,16 +1,31 @@
-function TodoList({error, loading, onError, onEmpty, onLoading, todos, render, filteredTodos, children}){
+function TodoList({error, 
+  todos, 
+  loading, 
+  onError, 
+  onEmptyTodos, 
+  onLoading, 
+  totalTodos, 
+  render, 
+  filteredTodos, 
+  onEmptySearchedTodos, 
+  children,
+  searchText,
+
+}){
+
+  const renderFunc = children || render
   return(
-    <>
-      {(loading && !error) && onLoading}
-      {(!loading && error) && onError}
-      {(!loading && !todos.length) && onEmpty}
-      {filteredTodos.map(render)}
+    <section>
+      {(loading && !error) && onLoading()}
+      {(!loading && error) && onError()}
+      {(!loading && !totalTodos) && onEmptyTodos()}
+      {(!!todos.length && !filteredTodos.length) && onEmptySearchedTodos(searchText)}
 
 
-    <ul>
-      {children}
-    </ul>
-    </>
+
+      {filteredTodos.map(renderFunc)}
+
+    </section>
   )
 }
 
