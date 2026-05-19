@@ -65,15 +65,17 @@ function App() {
         </TodoHeader>
 
 
+              {/* Render props */}
+              <TodoList
+                error = {error}
+                loading = {loading}
+                todos={todos}
+                filteredTodos = {filteredTodos}
 
-
-              <TodoList>
-
-              {(loading && !error)  && <TodosLoading />}
-              {(error && !loading)  && <TodosError />}
-              {(!loading && !error && !todos.length) && <EmptyTodos />}
-
-              {filteredTodos.map(todo => (
+                onError = {()=> <TodosError />}
+                onLoading = {()=> <TodosLoading />}
+                onEmpty = {()=> <EmptyTodos />}
+                render={todo => (
                 <TodoItem
                 key={todo.text} 
                 text={todo.text}
@@ -81,8 +83,8 @@ function App() {
                 onComplete={() => completeTodo(todo.text)}
                 onDelete={() => deleteTodo(todo.text)}
                 />
-              ))}
-            </TodoList>
+                )}
+              />
 
 
       </section>
