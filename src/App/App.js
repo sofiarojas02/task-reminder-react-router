@@ -15,6 +15,7 @@ import { CreateNewBookButton } from '../TodoComponents/CreateNewBookButton';
 import { NewNote } from '../TodoComponents/NewNote';
 import { TodoHeader } from '../TodoComponents/TodoHeader';
 import { CreateTodoButton } from '../TodoComponents/CreateTodoButton';
+import { ChangeAlertWithStorageListener } from '../ChangeAlert/ChangeAlert';
 
 
 function App() {
@@ -40,6 +41,7 @@ function App() {
     setSameTodo,
     addTodo,
     deleteNote,
+    sincronizeTodos,
   } = useTodos()
 
 
@@ -48,6 +50,11 @@ function App() {
     <>
 
     <div className='Main'>
+
+      <ChangeAlertWithStorageListener 
+      sincronize = {sincronizeTodos}
+      />
+
 
       <section className='Todos__section'>
 
@@ -104,6 +111,7 @@ function App() {
                   )
                   } */}
               </TodoList>
+
 
 
       </section>

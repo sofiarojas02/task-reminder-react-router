@@ -16,6 +16,7 @@ const capitalize = (text) => {
   const {
     item: todos, 
     saveItem: saveTodos,
+    sincronizeItem: sincronizeTodos,
     loading,
     error,
   } = useLocalStorage('TODOS_V1', [])
@@ -130,6 +131,7 @@ const capitalize = (text) => {
         sameNote,
         setSameNote,
         todos,
+        sincronizeTodos
     }
     )
 
