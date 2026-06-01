@@ -168,40 +168,6 @@ li p {
 }
 
 /* =============================================
-   ICONOS
-   ============================================= */
-span {
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  transition: transform var(--transition);
-}
-
-.icon-svg {
-  width: 24px;
-  height: 24px;
-}
-
-.icon__container--check:hover {
-  transform: scale(1.2);
-}
-.icon__container--check:hover .icon-svg {
-  fill: var(--success);
-}
-
-.icon__container--delete:hover {
-  transform: scale(1.2);
-}
-.icon__container--delete:hover .icon-svg {
-  fill: var(--danger);
-}
-
-.check__text {
-  text-decoration: line-through;
-  color: var(--text-muted) !important;
-}
-
-/* =============================================
    SKELETON LOADING
    ============================================= */
 .skeleton-item {

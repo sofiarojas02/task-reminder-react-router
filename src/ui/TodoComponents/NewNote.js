@@ -1,5 +1,5 @@
 import React, { useContext } from "react"
-import '../CSS/Notes.css'
+import '../../CSS/Notes.css'
 
 function NewNote ({
         notes,

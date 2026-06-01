@@ -1,24 +1,24 @@
-import '../CSS/App.css';
-import '../CSS/NewBookModal.css'
+import '../../CSS/App.css';
+import '../../CSS/NewBookModal.css'
 import React from 'react';
-import {  useTodos } from './useTodos';
-import { TodoCounter } from '../TodoComponents/TodoCounter';
-import { TodoItem } from '../TodoComponents/TodoItem';
-import { TodoList } from '../TodoComponents/TodoList';
-import { TodoSearch } from '../TodoComponents/TodoSearch';
-import { CreateTask } from '../TodoComponents/CreateTask';
-import {TodosLoading} from '../TodoComponents/TodosLoading'
-import {TodosError} from '../TodoComponents/TodosError'
-import {EmptyTodos} from '../TodoComponents/EmptyTodos'
-import {NewBook} from '../BookPortal/NewBook'
-import { CreateNewBookButton } from '../TodoComponents/CreateNewBookButton';
-import { NewNote } from '../TodoComponents/NewNote';
-import { TodoHeader } from '../TodoComponents/TodoHeader';
-import { CreateTodoButton } from '../TodoComponents/CreateTodoButton';
-import { ChangeAlert } from '../ChangeAlert/ChangeAlert';
+import {  useTodos } from '../useTodos';
+import { TodoCounter } from '../../ui/TodoComponents/TodoCounter';
+import { TodoItem } from '../../ui/TodoComponents/TodoItem';
+import { TodoList } from '../../ui/TodoComponents/TodoList';
+import { TodoSearch } from '../../ui/TodoComponents/TodoSearch';
+import { CreateTask } from '../../ui/TodoComponents/CreateTask';
+import {TodosLoading} from '../../ui/TodoComponents/TodosLoading'
+import {TodosError} from '../../ui/TodoComponents/TodosError'
+import {EmptyTodos} from '../../ui/TodoComponents/EmptyTodos'
+import {NewBook} from '../../ui/BookPortal/NewBook'
+import { CreateNewBookButton } from '../../ui/TodoComponents/CreateNewBookButton';
+import { NewNote } from '../../ui/TodoComponents/NewNote';
+import { TodoHeader } from '../../ui/TodoComponents/TodoHeader';
+import { CreateTodoButton } from '../../ui/TodoComponents/CreateTodoButton';
+import { ChangeAlert } from '../../ui/ChangeAlert/ChangeAlert';
 
 
-function App() {
+function HomePage() {
 
     const {
     loading,
@@ -91,25 +91,15 @@ function App() {
                 onEmptySearchedTodos = {(searchText)=> <p>No hay resultado para: {searchText} </p>}
                 render={todo => (
                 <TodoItem
-                key={todo.text} 
+                key={todo.id} 
                 text={todo.text}
                 completed={todo.completed}
-                onComplete={() => completeTodo(todo.text)}
-                onDelete={() => deleteTodo(todo.text)}
+                onComplete={() => completeTodo(todo.id)}
+                onDelete={() => deleteTodo(todo.id)}
+                onEdit={() => console.log('Editar todo')}
                 />
                 )}
               >
-
-                  {/* {todo => (
-                  <TodoItem
-                  key={todo.text} 
-                  text={todo.text}
-                  completed={todo.completed}
-                  onComplete={() => completeTodo(todo.text)}
-                  onDelete={() => deleteTodo(todo.text)}
-                  />
-                  )
-                  } */}
               </TodoList>
 
 
@@ -159,4 +149,4 @@ function App() {
   );
 }
 
-export default App;
+export {HomePage};

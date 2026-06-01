@@ -1,5 +1,5 @@
 
-import '../CSS/TodoCounter.css'
+import '../../CSS/TodoCounter.css'
 
 function TodoCounter({completedTodos, totalTodos, loading}){
   return(

@@ -1,5 +1,5 @@
 import { useStoragelistener } from "./useStoragelistener"
-import '../CSS/ChangeAlert.css'
+import '../../CSS/ChangeAlert.css'
 
 function ChangeAlert({sincronize}){
 

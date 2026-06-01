@@ -19,14 +19,14 @@ const capitalize = (text) => {
     sincronizeItem: sincronizeTodos,
     loading,
     error,
-  } = useLocalStorage('TODOS_V1', [])
+  } = useLocalStorage('TODOS_V2', [])
 
   const {
     item: notes,
     saveItem: saveNotes,
     loadingNote,
     errorNote,
-  } = useLocalStorage('NOTES_V1', [])
+  } = useLocalStorage('NOTES_V2', [])
 
   const [searhcValue, setSearhcValue] = React.useState('');
   const [isNewBook, setIsNewBook] = React.useState(false); //Modal para añadir nota
@@ -42,26 +42,8 @@ const capitalize = (text) => {
   const totalTodos = todos.length
   const completedTodos = todos.filter(todo => todo.completed).length
 
-
-  const completeTodo = (textComplete)=>{
-    const newTodos = [...todos]
-    const todoIndex = newTodos.findIndex((todo)=>
-      todo.text === textComplete)
-    newTodos[todoIndex].completed = !newTodos[todoIndex].completed
-    saveTodos(newTodos)
-  }
-
-  const deleteTodo = (textDelete)=>{
-    const newTodos = [...todos]
-    const todoIndex = newTodos.findIndex((todo)=>
-      todo.text === textDelete
-    )
-    // const news = newTodos.filter(todo => todo.text !== textDelete)
-    newTodos.splice(todoIndex, 1)
-    saveTodos(newTodos)
-  }
-
-  const addTodo = (text) => {
+    const addTodo = (text) => {
+      const todoId = newTodoId()
     let comparedTodos = []
     if(text !== ''){
       const newTodos = [...todos]
@@ -70,6 +52,7 @@ const capitalize = (text) => {
         newTodos.push({
           text: capitalize(text),
           completed: false,
+          id: todoId,
         })
         saveTodos(newTodos)
       }else{
@@ -78,15 +61,37 @@ const capitalize = (text) => {
     }
   }
 
+  const completeTodo = (idComplete)=>{
+    const newTodos = [...todos]
+    const todoIndex = newTodos.findIndex((todo)=>
+      todo.id === idComplete)
+    newTodos[todoIndex].completed = !newTodos[todoIndex].completed
+    saveTodos(newTodos)
+  }
+
+  const deleteTodo = (idDelete)=>{
+    const newTodos = [...todos]
+    const todoIndex = newTodos.findIndex((todo)=>
+      todo.id === idDelete
+    )
+    // const news = newTodos.filter(todo => todo.text !== textDelete)
+    newTodos.splice(todoIndex, 1)
+    saveTodos(newTodos)
+  }
+
+
+
 
   const addNewNote = (text) => {
+    const idNote = newNoteId(notes)
     let compareNotes = []
     if(text !== ''){
     const newNotes = [...notes]
     compareNotes = newNotes.filter((note) => formatString(note.text) === formatString(text))
     if(compareNotes.length === 0){
       newNotes.push({
-        text: capitalize(text)
+        text: capitalize(text),
+        id: idNote,
       })
       setIsNewBook(false)
       saveNotes(newNotes)
@@ -136,6 +141,21 @@ const capitalize = (text) => {
     )
 
 
+}
+
+
+function newTodoId(){
+  return crypto.randomUUID();
+}
+
+
+function newNoteId(noteList){
+  if(noteList.length === 0) return 1;
+  else{
+    const idList = noteList.map(note => note.id)
+    const idMax = Math.max(idList)
+    return idMax + 1
+  }
 }
 
 
