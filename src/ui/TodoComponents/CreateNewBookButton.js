@@ -2,13 +2,11 @@ import { useContext } from 'react'
 import '../../CSS/CreateNewBookButton.css'
 
 
-function CreateNewBookButton({setIsNewBook}){
+function CreateNewBookButton({onClick}){
 
     return(
         <button 
-        onClick={()=>
-            setIsNewBook(true)
-        }
+        onClick={onClick}
         className='CreateBookButton'>Create New Note</button>
     )
 }

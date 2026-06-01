@@ -1,63 +1,53 @@
 import React, { useContext, useEffect } from "react"
 import '../../CSS/NewBook.css'
 import ReactDOM from 'react-dom';
+import { useNavigate } from "react-router-dom";
+import { useTodos } from "../../routes/useTodos";
 
 
-function NewBook ({
-        addNewNote,
-        setIsNewBook,
-        sameNote,
-        setSameNote,
-    }){
+function NewBook (props){
+    
+    const navigate= useNavigate()
 
   const [valueNote, setValueNote] = React.useState('');
 
-  const modalNoteRef = React.useRef(null)
-
-    useEffect(()=>{
-    const modalNoteOutside = (e) => {
-        if(modalNoteRef.current && !modalNoteRef.current.contains(e.target)){
-            setIsNewBook(false)
-        }
-    }
-
-    document.addEventListener('mousedown', modalNoteOutside);
-    return () => document.removeEventListener('mousedown', modalNoteOutside)
-
-},[])
 
 
     const onCancel = () => {
-        setIsNewBook(false)
-        setSameNote(false)
+        // setIsNewBook(false)
+        navigate('/')
+        props.setSameNote(false)
     }
-
+    
     const onCreateNote = (text) => {
-        addNewNote(text)
+        const save =  props.submitEvent(text)
+        
+        if(save){
+            navigate('/')
+        }
     }
 
 
     return ReactDOM.createPortal(
         <div className="ModalBackground">
-            <div className="ModalContainer"
-            ref={modalNoteRef}>
-                <h2 className="ModalTitle">Create new note</h2>
+            <div className="ModalContainer">
+                <h2 className="ModalTitle"> {props.noteTitle} </h2>
 
                 {/* Formulario de añadir nueva nota */}
                 <form 
                 className="ModalForm"
                 onSubmit={(e)=> e.preventDefault()}
                 >
-                <p className={`errorAddNote ${sameNote ? 'showErrorAddNote' : ''}`}>Nota ya está existente</p>
+                <p className={`errorAddNote ${props.sameNote ? 'showErrorAddNote' : ''}`}>Nota ya está existente</p>
                 <label>Note</label>
                 <input 
                     type="text" 
-                    placeholder="Enter note..." 
+                    placeholder={`${valueNote? valueNote : 'Enter note...'} `} 
                     className="ModalInput"
                     value={valueNote}
                     onChange={(e)=>{
                         setValueNote(e.target.value)
-                        setSameNote(false)
+                        props.setSameNote(false)
                     }}
                 />
 
@@ -71,7 +61,7 @@ function NewBook ({
                     onClick={() => onCreateNote(valueNote)}
                     type="button"
                     className="Button--create"
-                    >Create</button>
+                    > {props.submitText} </button>
             </div>
                 </form>
             </div>

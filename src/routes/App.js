@@ -3,8 +3,8 @@ import '../CSS/App.css';
 import '../CSS/NewBookModal.css'
 import React from 'react';
 import { HomePage } from './pages/HomePage';
-import { EditTodoPage } from './pages/EditTodoPage';
-import { NewTodoPage } from './pages/NewTodoPage';
+import { EditNotePage } from './pages/EditNotePage';
+import { NewNotePage } from './pages/NewNotePage';
 
 
 function App() {
@@ -12,8 +12,8 @@ function App() {
       <HashRouter>
         <Routes>
           <Route path='/' element={<HomePage />} />
-          <Route path='/new' element={<NewTodoPage />} />
-          <Route path='/edit/:id' element={<EditTodoPage />} />
+          <Route path='/new' element={<NewNotePage />} />
+          <Route path='/edit/:id' element={<EditNotePage />} />
           <Route path='*' element={<p> 404 Not Found</p>} />
         </Routes>
       </HashRouter>

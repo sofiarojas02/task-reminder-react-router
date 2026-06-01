@@ -93,16 +93,36 @@ const capitalize = (text) => {
         text: capitalize(text),
         id: idNote,
       })
-      setIsNewBook(false)
       saveNotes(newNotes)
+      return true
       }else{
       setSameNote(true)
+      return false
     }}
+    return false
   }
 
-  const deleteNote = (deleteText) =>{
+    const editNote = (id, newText) => {
+    let compareNotes = []
+    if(newText !== ''){
     const newNotes = [...notes]
-    const noteIndex = newNotes.findIndex((note) => note.text === deleteText)
+    const noteIndex = newNotes.findIndex((note)=> note.id === id)
+    compareNotes = newNotes.filter((note) => formatString(note.text) === formatString(newText))
+    if(compareNotes.length === 0){
+      newNotes[noteIndex].text = newText
+      saveNotes(newNotes)
+      return true
+      }else{
+      setSameNote(true)
+      return false
+    }}
+    return false
+  }
+
+
+  const deleteNote = (idDelete) =>{
+    const newNotes = [...notes]
+    const noteIndex = newNotes.findIndex((note) => note.id === idDelete)
     newNotes.splice(noteIndex, 1)
     saveNotes(newNotes)
   }
@@ -136,7 +156,8 @@ const capitalize = (text) => {
         sameNote,
         setSameNote,
         todos,
-        sincronizeTodos
+        sincronizeTodos,
+        editNote,
     }
     )
 

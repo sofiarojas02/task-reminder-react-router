@@ -1,6 +1,7 @@
 import '../../CSS/App.css';
 import '../../CSS/NewBookModal.css'
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 import {  useTodos } from '../useTodos';
 import { TodoCounter } from '../../ui/TodoComponents/TodoCounter';
 import { TodoItem } from '../../ui/TodoComponents/TodoItem';
@@ -12,13 +13,16 @@ import {TodosError} from '../../ui/TodoComponents/TodosError'
 import {EmptyTodos} from '../../ui/TodoComponents/EmptyTodos'
 import {NewBook} from '../../ui/BookPortal/NewBook'
 import { CreateNewBookButton } from '../../ui/TodoComponents/CreateNewBookButton';
-import { NewNote } from '../../ui/TodoComponents/NewNote';
+// import { NewNote } from '../../ui/TodoComponents/NewNote';
 import { TodoHeader } from '../../ui/TodoComponents/TodoHeader';
 import { CreateTodoButton } from '../../ui/TodoComponents/CreateTodoButton';
 import { ChangeAlert } from '../../ui/ChangeAlert/ChangeAlert';
+import { NewNote } from '../../ui/TodoComponents/NewNote';
 
 
 function HomePage() {
+
+  const navigate = useNavigate()
 
     const {
     loading,
@@ -96,7 +100,6 @@ function HomePage() {
                 completed={todo.completed}
                 onComplete={() => completeTodo(todo.id)}
                 onDelete={() => deleteTodo(todo.id)}
-                onEdit={() => console.log('Editar todo')}
                 />
                 )}
               >
@@ -117,11 +120,12 @@ function HomePage() {
 
 
       <CreateNewBookButton 
-      setIsNewBook = {setIsNewBook}
+      onClick={() => navigate('/new')}
+      // setIsNewBook = {setIsNewBook}
       />
 
 
-      {/* Book Portal */}
+      {/* Book Portal
             {isNewBook && 
             <NewBook 
             addNewNote = {addNewNote}
@@ -129,12 +133,13 @@ function HomePage() {
             sameNote = {sameNote}
             setSameNote = {setSameNote}
             
-            />}
+            />} */}
 
 
             <NewNote 
             notes = {notes}
             deleteNote = {deleteNote}
+
             />
 
       
