@@ -26,7 +26,14 @@ function NewNote ({
                     ×
                     </span>
                     <span className="icon__container--edit"
-                    onClick={() => navigate('/edit/' + note.id)}
+                    onClick={() => {
+                        navigate(
+                            '/edit/' + note.id,
+                            {
+                                state: { note }
+                            }
+                        )
+                    }}
                     >
                         <EditSVG />
                     </span>

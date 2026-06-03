@@ -9,7 +9,7 @@ function NewBook (props){
     
     const navigate= useNavigate()
 
-  const [valueNote, setValueNote] = React.useState('');
+  const [valueNote, setValueNote] = React.useState(props.lastTextNote || '');
 
 
 
@@ -42,7 +42,7 @@ function NewBook (props){
                 <label>Note</label>
                 <input 
                     type="text" 
-                    placeholder={`${valueNote? valueNote : 'Enter note...'} `} 
+                    placeholder="Enter note..." 
                     className="ModalInput"
                     value={valueNote}
                     onChange={(e)=>{

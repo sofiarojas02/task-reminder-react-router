@@ -102,6 +102,11 @@ const capitalize = (text) => {
     return false
   }
 
+  const getNote = (id) => {
+    const noteIndex = notes.findIndex(note => note.id === id)
+    return notes[noteIndex]
+  }
+
     const editNote = (id, newText) => {
     let compareNotes = []
     if(newText !== ''){
@@ -158,6 +163,7 @@ const capitalize = (text) => {
         todos,
         sincronizeTodos,
         editNote,
+        getNote,
     }
     )
 
