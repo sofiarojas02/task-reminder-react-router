@@ -5,9 +5,11 @@ import React from 'react';
 import { HomePage } from './pages/HomePage';
 import { EditNotePage } from './pages/EditNotePage';
 import { NewNotePage } from './pages/NewNotePage';
+import { useTodos } from './useTodos';
 
 
 function App() {
+  const {searhcValue} = useTodos()
     return (
       <HashRouter>
         <Routes>

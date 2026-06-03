@@ -1,7 +1,7 @@
 import '../../CSS/App.css';
 import '../../CSS/NewBookModal.css'
 import React from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useSearchParams } from 'react-router-dom';
 import {  useTodos } from '../useTodos';
 import { TodoCounter } from '../../ui/TodoComponents/TodoCounter';
 import { TodoItem } from '../../ui/TodoComponents/TodoItem';
@@ -20,8 +20,10 @@ import { ChangeAlert } from '../../ui/ChangeAlert/ChangeAlert';
 import { NewNote } from '../../ui/TodoComponents/NewNote';
 
 
-function HomePage() {
 
+function HomePage() {
+  
+  const [params, setParams] = useSearchParams();
   const navigate = useNavigate()
 
     const {
@@ -75,6 +77,8 @@ function HomePage() {
           <TodoSearch 
           searhcValue={searhcValue}
           setSearhcValue={setSearhcValue}
+          params={params}
+          setParams={setParams}
           />
 
         </TodoHeader>
