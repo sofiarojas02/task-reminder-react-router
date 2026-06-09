@@ -1,5 +1,5 @@
 {
-  "name": "task-reminder-migracion",
+  "name": "task-reminder-react-router",
   "version": "0.1.0",
   "dependencies": {
     "bootstrap": "^5.3.8",
@@ -33,7 +33,7 @@
       "last 1 safari version"
     ]
   },
-  "homepage": "https://sofiarojas02.github.io/Composition",
+  "homepage": "https://sofiarojas02.github.io/task-reminder-react-router",
   "devDependencies": {
     "gh-pages": "^6.3.0"
   }
