@@ -1,0 +1,16 @@
+{
+  "files": {
+    "main.css": "/task-reminder-react-router/static/css/main.6cabb01a.css",
+    "main.js": "/task-reminder-react-router/static/js/main.a647146a.js",
+    "index.html": "/task-reminder-react-router/index.html",
+    "static/media/edit.svg": "/task-reminder-react-router/static/media/edit.27d63478b28f1166a887e5e6c9975fce.svg",
+    "static/media/check.svg": "/task-reminder-react-router/static/media/check.6c56ff23238b726dd642bd4b794f1f69.svg",
+    "static/media/close.svg": "/task-reminder-react-router/static/media/close.b7ba6b1886f088ec523c6de41c52b3fa.svg",
+    "main.6cabb01a.css.map": "/task-reminder-react-router/static/css/main.6cabb01a.css.map",
+    "main.a647146a.js.map": "/task-reminder-react-router/static/js/main.a647146a.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.6cabb01a.css",
+    "static/js/main.a647146a.js"
+  ]
+}
