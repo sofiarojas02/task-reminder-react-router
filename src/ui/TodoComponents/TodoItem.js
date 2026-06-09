@@ -16,9 +16,6 @@ function TodoItem({text, completed, onComplete, onDelete, onEdit}){
       <p className={`${completed && 'check__text'} `}
       >{text}</p>
 
-      <EditIcon 
-      onEdit={onEdit}
-      />
       <DeleteIcon 
       onDelete={onDelete}
       />
